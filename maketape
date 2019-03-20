@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# make a new tape
+# $1 is the filename
+if [ -z $1 ]; then 
+    echo "Create a blank tape for the proto16 CPU"
+    echo "This will create a 20MB tape template"
+	echo "Usage: maketape [filename]"
+	exit
+fi
+ 
+dd if=/dev/zero of=$1 bs=1K count=20000
+

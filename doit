@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# combine files and assemble
+echo "combining files"
+cat shell.asm punch.asm reader.asm edit.asm tape.asm basic.asm log.asm  > sys.asm
+
+echo "assembling file"
+./asm sys.asm
+
+echo "output file is sys.bin"
+

@@ -1,0 +1,102 @@
+This describes the text editor, edit, a line editor.
+
+The editor is started by typing 'edit' at the command line.
+You will be presented with an edit command prompt '#'.
+Anytime you see the '#' prompt, you will be in command mode.
+
+The following commands are valid in command mode:
+
+'x'	Exit the editor and return to the command line.
+'?'	Show the commands available in the editor.
+'a'	Go to append mode. This lets you enter lines of 
+	text to the end of the edit buffer.
+i[n]	Insert lines of text at the beginning of line number
+	n, where n is a positive integer.
+d[n]	Delete line n, where n is a positive integer.
+l	List the edit buffer. A line number will preceed
+	the line of text. This line number references the line
+	number n for the i (insert) and d (delete) commands.
+m	Memory pointers. This shows the start and stop
+	addresses the editor is using.
+w	Write the edit buffer to mass storage. Default is tape.
+r	Read from the mass storage device to the edit buffer.
+	Default device is tape.
+c	Clear the edit buffer (erase). This is not undoable.
+
+APPEND 
+When you first start the editor, the edit buffer will be empty and
+the command prompt '#' will be displayed. Pressing 'a <cr>' will start
+the append mode and the prompt will change to ':'. This prompt
+shows that characters you enter from the console input device will
+be saved to the edit buffer. In append mode, all characters will be
+appended to the end of the edit buffer.
+
+To exit from the append mode back to the command mode, press the
+escape key (ESC). The current line will be discarded and you will 
+be presented with the command prompt '#'.
+
+While in append mode, every press of the enter (carrage return) key
+will save the current line, place a carrage return character at the 
+end of the line, and start a new line.
+
+LIST
+While in command mode, pressing 'l <cr>' will list the contents of the
+edit buffer. Each line will be preceeded by a line number. This line number
+is a positive integer starting at 1, and is used with the insert and delete 
+commands. While listing the edit buffer contents, listing will pause every 
+24 lines. To continue the listing, press the enter (<cr>) key.
+
+DELETE
+While in command mode you are able to delete a single line at a time.
+With some text lines in the edit buffer, press 'l <cr>' list the buffer
+contents. You will see a line number then the line of text in the buffer.
+Pressing 'd5' and enter will delete line 5. Pressing 'd15' and enter
+will delete line 15.
+
+INSERT
+While in command mode you can insert one to multiple lines of text at
+the beginning of a given line number. Pressing 'i5' and enter will
+change the command prompt '#' to the insert prompt ':' allowing you
+to type text. Text will continue to be inserted starting at line 5
+until you press the ESC key to stop and return you to the command prompt.
+As you add text, the existing text will be moved up to make space for the
+new inserted text you enter. At any time while you are in the insert mode, 
+presing the ESC (escape) key will stop the insert mode and return you to 
+the command mode.
+
+WRITE
+While in command mode, pressing 'w' and enter will start the write process.
+The storage device (default is tape) will be opened if available and you
+will be asked for a filename. If the device is busy, you will get an error
+message. If this happens, wait a few moments until the device is free 
+and try again.
+The filename can be up to 16 characters using letters and numbers. A period '.'
+can be used to seperate the filename with an extention (file.txt).
+
+READ
+While in command mode, pressing 'r' and enter will allow you to read a file
+from the storage device (default is tape) and store it into the edit buffer.
+If the device is busy you will get an error message. If so, wait a few 
+moments and try again. You will be asked for a filename. If the file with
+the supplied filename exists, the data will be copied from the storage
+device and placed into the edit buffer. If the file does not exist, you will
+get an error message saying so.
+Before the file is loaded into the edit buffer, the buffer will be cleared
+and all current lines will be deleted.
+
+CLEAR
+While in command mode, pressing 'c' and enter will clear the edit buffer. 
+This will erase the edit buffer, and all of your data will be lost. You
+will be asked if you want to do this before the data is cleared. Any letter
+other than 'y' will abort the clear process and your data will stay unchanged.
+
+EXIT
+From the command mode prompt, pressing 'x' and enter will exit the line 
+editor and place you back at the command prompt. You data will stay intact. 
+Starting the line editor again will bring you back to the state you were in 
+when you exited the editor. All data will still remain for you to continue 
+where you left off.
+NOTE: When you log out of the system, the edit buffer will be cleared and
+all data will be lost.
+
+
