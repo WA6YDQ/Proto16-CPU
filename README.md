@@ -13,14 +13,20 @@ DECODE.C  - instruction decoder
 
 ASM2.C  - assembler (compiler) for the instruction set
 
-DOIT  - concat the *.asm files for a rudimentary shell and BASIC interpreter
+DOIT  - concat the *.asm files for a rudimentary shell and BASIC interpreter (poor mans make)
 
 shell.asm 
+
 punch.asm
+
 reader.asm
+
 edit.asm
+
 tape.asm
+
 basic.asm
+
 log.asm
 
 These files constitute a small shell program for testing the CPU
