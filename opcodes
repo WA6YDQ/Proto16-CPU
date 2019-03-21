@@ -34,3 +34,94 @@ E8  ----
 F0  RET     1
 F8  ----
 
+
+SET flags
+CLR flags
+Flags: Z (zero), CY (carry), S (sign), OV (nibble overflow)
+
+LOAD
+#immed, mem
+#immed, R0-7
+@immed, SP IX IY
+#immed, (IX/IY)
+[mem], R0-7
+[mem], IX IY SP
+R0-7, [mem]
+R0-7, R0-7
+R0-7, (IX IY)
+IX IY SP, [mem]
+IX IY SP, IX IY SP
+(IX IY), (IX IY)
+(IX IY), R0-7
+[mem], [mem]
+
+AND OR XOR
+#immed, R0-7
+[mem], R0-7
+R0-7, R0-7
+(IX IY), R0-7
+
+SLL SRL
+[mem]
+R0-7
+(IX IY)
+
+COMP
+[mem]
+R0-7
+(IX IY)
+
+ADD SUB MUL DIV
+16 bit operations:
+#immed, R0-7
+[mem], R0-7
+R0-7, R0-7
+(IX IY), R0-7
+R0-7, IX IY
+32 biot operations:
+IX IY, IX IY
+
+TEST
+[mem]
+R0-7
+SP IX IY
+(IX IY)
+
+COMPARE
+#immed, [mem]/R0-7/(IX IY)
+[mem], [mem]/R0-7/(IX IY)
+R0-7, [mem]/R0-7/(IX IY)
+(IX IY), [mem]/R0-7/(IX IY)
+
+INC DEC
+[mem]
+R0-7
+SP IX IY
+(IX IY)
+
+PUSH POP
+R0-7
+IX 
+IY
+
+SWAP
+R0-7
+IX
+IY
+
+JUMP CALL RET
+zero, not zero, carry set, carry clear, sign set (minus), sign clear (plus), overflow set
+
+NOP
+no operation
+
+TRAP
+page zero jump
+
+HALT
+halt the CPU
+
+RESET
+reset the CPU
+
+
